@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from "react";  
 
 function App() {
+  const [text, setText] = useState("");
+  
+  // when enter is pressed 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setText(event.target[0].value);
+    
+  };
+  
+  
+  // visual stuff
   return (
-    <div className="App">
+    <div class="wrapper">
+      <div class="box box1">
+      <div class="box box2"></div>
+    </div>
+    <div class="overflow-auto">
+      <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={"https://purepng.com/public/uploads/large/one-v-buck-dpf.png"} className="App-logo" alt="Avatar" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          bring back costco churros 
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className = "commentBox">
+          <form onSubmit={handleSubmit}> 
+            <input type = "text" id = "comment" placeholder = "thoughts?" />
+           
+          </form>
+          <h1>
+          <marquee class="css3" direction="up" width="1500"  behavior="alternate" >
+            <marquee class="css4" behavior="alternate" scrollamount="15">
+              most recent comment: {text}
+            </marquee>
+          </marquee>
+          </h1>
+        </div>
       </header>
+      </div>
+      </div>
     </div>
   );
 }

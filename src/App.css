@@ -4,17 +4,31 @@
 
 .App-logo {
   height: 40vmin;
-  pointer-events: none;
+  border-radius: 60%;
+  cursor:pointer;
+  pointer-events: auto;
+  background-size: 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: spin 3s infinite linear;
   }
 }
 
+.App-logo:hover {
+  pointer-events: auto;
+  transition: background 0.1s, box-shadow 0.1s;
+  background: #c1d4fb; 
+  box-shadow:  0 0 5px #c1d4fb,  0 0 25px #c1d4fb,  0 0 50px #c1d4fb,  0 0 75px #c1d4fb;
+  transform: scale(2);
+}
+
 .App-header {
-  background-color: #282c34;
+  background-image: url("https://img.freepik.com/free-vector/gradient-dark-dynamic-lines-background_23-2148995950.jpg");
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  background-color: #cccccc;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -28,11 +42,47 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+.box1 {
+  background-color: #000;
+  color: #fff;
+  opacity: .5;
+}
+
+.box2 {
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+}
+
+@-webkit-keyframes spin{
   from {
-    transform: rotate(0deg);
+    -webkit-transform: rotateY(0deg);
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotateY(-360deg);
   }
+}
+
+@keyframes spin{
+  from {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  
+  to {
+    -moz-transform: rotateY(-360deg);
+    -ms-transform: rotateY(-360deg);
+    transform: rotateY(-360deg);
+  }
+}
+
+.commentBox [type=text]{
+  background-color: #d5e1f9;
+  border: 50px, #c1d4fb;
+  height: 30px;
+}
+
+.commentBox:focus[type=text] {
+  background: #c1d4fb; 
+  box-shadow:  0 0 5px #c1d4fb, 0 0 25px #c1d4fb,  0 0 50px #c1d4fb,  0 0 100px #c1d4fb
 }
